@@ -4,8 +4,8 @@ import './Roles.css'
 export function Roles(){
     
     return(
-    <div className="roles">
-    <h1>ROLES</h1>
-    </div>
+    <>
+    <h1 className='roles'>ROLES</h1>
+    </>
     );
 }
