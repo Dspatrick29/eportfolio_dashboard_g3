@@ -1,10 +1,12 @@
 import './Cabecera.css';
 
-export function Cabecera(){
+export function Cabecera(props){
     
     return(
     <>
-    <h1 className="Cabecera">HEADER</h1>
+    <header className="Cabecera">
+    <p>HEADER {props.usuario}</p>
+    </header>
     </>
     );
 }

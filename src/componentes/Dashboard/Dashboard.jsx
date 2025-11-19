@@ -1,11 +1,13 @@
 import './Dashboard.css'
 
 
-export function Dashboard(){
+export function Dashboard(props){
     
     return(
-    <div className="Main">
-    <h1>MAIN</h1>
-    </div>
+    <>
+    <main className="Main">
+    <p >MAIN {props.token}</p>
+    </main>
+    </>
     );
 }
