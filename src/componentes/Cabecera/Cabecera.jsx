@@ -4,7 +4,9 @@ export function Cabecera(){
     
     return(
     <>
-    <h1 className="Cabecera">HEADER</h1>
+    <header className="Cabecera">
+    <p>HEADER</p>
+    </header>
     </>
     );
 }

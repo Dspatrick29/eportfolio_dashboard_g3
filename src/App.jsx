@@ -13,19 +13,19 @@ function App() {
 
   return (
     <>
-          <Container>
+      <Container fluid>
         <Row>
           <Col>
             <Cabecera />
           </Col>
         </Row>
-
-        <Row>
-          <Col>
+        {/* Importante el g-0, para eliminar el espacio horizontal que bootstrap añade por defecto */}
+        <Row className="g-0">
+          <Col xs={3} sm={3}>
             <Roles />
           </Col>
-          <Col>
-            <Dashboard />
+          <Col xs={9} sm={9}>
+              <Dashboard />
           </Col>
         </Row>
       </Container>

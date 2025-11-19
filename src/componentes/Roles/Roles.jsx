@@ -1,11 +1,13 @@
 
 import './Roles.css'
 
-export function Roles(){
-    
-    return(
-    <>
-    <h1 className='roles'>ROLES</h1>
-    </>
+export function Roles() {
+
+    return (
+        <>
+            <aside>
+                <p className='roles'>ROLES</p>
+            </aside>
+        </>
     );
 }
