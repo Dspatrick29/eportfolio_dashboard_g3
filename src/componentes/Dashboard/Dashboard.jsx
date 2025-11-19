@@ -1,12 +1,12 @@
 import './Dashboard.css'
 
 
-export function Dashboard(){
+export function Dashboard(props){
     
     return(
     <>
     <main className="Main">
-    <p >MAIN</p>
+    <p >MAIN {props.token}</p>
     </main>
     </>
     );

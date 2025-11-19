@@ -11,21 +11,25 @@ import { Roles } from './componentes/Roles/Roles'
 
 function App() {
 
+  let usuario="Patrick";
+  let token="1481463";
+  let menu="No se que poner";
+
   return (
     <>
       <Container fluid>
         <Row>
           <Col>
-            <Cabecera />
+            <Cabecera usuario={usuario}/>
           </Col>
         </Row>
         {/* Importante el g-0, para eliminar el espacio horizontal que bootstrap añade por defecto */}
         <Row className="g-0">
           <Col xs={3} sm={3}>
-            <Roles />
+            <Roles menu={menu}/>
           </Col>
           <Col xs={9} sm={9}>
-              <Dashboard />
+              <Dashboard token={token}/>
           </Col>
         </Row>
       </Container>

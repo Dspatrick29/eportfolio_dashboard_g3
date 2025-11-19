@@ -1,12 +1,12 @@
 
 import './Roles.css'
 
-export function Roles() {
+export function Roles(props) {
 
     return (
         <>
-            <aside>
-                <p className='roles'>ROLES</p>
+            <aside className='roles'>
+                <p>ROLES {props.menu}</p>
             </aside>
         </>
     );
