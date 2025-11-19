@@ -11,9 +11,9 @@ import { Roles } from './componentes/Roles/Roles'
 
 function App() {
 
-  let usuario="Patrick";
-  let token="1481463";
-  let menu="No se que poner";
+  let usuario="USUARIO";
+  let token="TOKEN";
+  let menu="MENU";
 
   return (
     <>
