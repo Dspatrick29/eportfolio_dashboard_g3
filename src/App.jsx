@@ -10,6 +10,8 @@ import { Dashboard } from './componentes/Dashboard/Dashboard'
 import { Roles } from './componentes/Roles/Roles'
 import TokenContext from './contextos/TokenContext';
 import UserContext from './contextos/UserContext';
+import SelectorTareaRA from './componentes/SelectorTareaRA/SelectorTareaRA';
+import NuevaEvidencia from './componentes/NuevaEvidencia/NuevaEvidencia';
 
 function App() {
 
@@ -27,6 +29,8 @@ function App() {
   let valorRandom = "Patrick";
   const [user, setUser] = useState(valorRandom);
 
+
+ 
   return (
     <>
       <TokenContext.Provider value={token}>
@@ -36,6 +40,7 @@ function App() {
               <Cabecera 
                 usuario = {user}
               />
+              
             </Col>
           </Row>
           {/* Importante el g-0, para eliminar el espacio horizontal que bootstrap añade por defecto */}
@@ -49,6 +54,10 @@ function App() {
             </Col>
           </Row>
           </UserContext.Provider>
+          
+
+{/* PRUEBA DEL SELECTOR */}
+<NuevaEvidencia></NuevaEvidencia>
         </Container>
       </TokenContext.Provider>
     </>
