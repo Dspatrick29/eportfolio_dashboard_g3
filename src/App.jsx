@@ -53,13 +53,15 @@ function App() {
               <Dashboard token={token} />
             </Col>
           </Row>
-          </UserContext.Provider>
+          
           
 
 {/* PRUEBA DEL SELECTOR */}
 <NuevaEvidencia></NuevaEvidencia>
+</UserContext.Provider>
         </Container>
       </TokenContext.Provider>
+      
     </>
   )
 }

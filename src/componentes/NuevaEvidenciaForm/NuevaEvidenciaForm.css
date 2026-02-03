@@ -1,0 +1,13 @@
+#formularioEvidencia {
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  gap: 20px; /* Añade espacio automático entre inputs y botón */
+  max-width: 500px; /* Opcional: para que no se vea gigante en pantallas grandes */
+  margin: 0 auto; /* Centra el formulario completo en la página */
+}
+
+/* Apuntamos al botón dentro de este formulario específico */
+#formularioEvidencia button {
+  align-self: center; 
+  min-width: 200px; 
+}
