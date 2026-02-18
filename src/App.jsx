@@ -15,6 +15,7 @@ import NuevaEvidencia from './componentes/NuevaEvidencia/NuevaEvidencia';
 import { Outlet, Route, Routes } from 'react-router-dom';
 import FuncionalidadEstudiante from './paginas/FuncionalidadEstudiante/FuncionalidadEstudiante';
 import FuncionalidadDocente from './paginas/FuncionalidadDocente/FuncionalidadDocente';
+import FamiliasProfesionales from './componentes/FamiliasProfesionales/FamiliasProfesionales';
 
 
 // CREAMOS EL LAYOUT (Tu estructura de Bootstrap)
@@ -84,7 +85,8 @@ function App() {
           {/* Rutas dinámicas */}
           <Route path="funcionalidadestudiante/:id" element={<FuncionalidadEstudiante />} /> 
           <Route path="funcionalidaddocente/:id" element={<FuncionalidadDocente />} /> 
-          
+          <Route path='familiasprofesionales' element={<FamiliasProfesionales></FamiliasProfesionales>} />
+
           {/* Ruta comodín para cualquier otro nombre (carga el Dashboard) */}
           <Route path=":nombre" element={<Dashboard token={token} />} /> 
 
