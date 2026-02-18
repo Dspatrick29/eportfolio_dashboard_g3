@@ -2,6 +2,7 @@ import { useState } from "react";
 import tareasRA from "../../mocks/mock-tareasRA";
 import SelectorTareaRA from "../SelectorTareaRA/SelectorTareaRA";
 import NuevaEvidenciaForm from "../NuevaEvidenciaForm/NuevaEvidenciaForm";
+import MenuRoles from "../MenuRoles/MenuRoles";
 
 function NuevaEvidencia() {
 
@@ -36,6 +37,7 @@ function NuevaEvidencia() {
             <NuevaEvidenciaForm tarea={tarea}
                 manejarEvidencia = {manejarEvidencia}
             ></NuevaEvidenciaForm>
+            <MenuRoles></MenuRoles>
         </>
     )
 }
