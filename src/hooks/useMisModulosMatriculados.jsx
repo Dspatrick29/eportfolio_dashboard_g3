@@ -1,14 +1,20 @@
-import { useState } from "react";
-import modulosMatriculados from "../mocks/mock-matriculados";
+import { useState, useEffect } from "react";
+import getMatriculados from "../servicios/getMatriculados";
 
-function useMisModulosMatriculados(usuario_) {
-    
-    const [buscando, setBuscando] = useState(false);
+function useMisModulosMatriculados(usuarioConectado) {
+    const [buscando, setBuscando] = useState(true);
+    const [lista, setLista] = useState([]);
 
-    // Accedemos a la propiedad '.lista' del usuario si este existe.
-    const modulosIniciales = modulosMatriculados[usuario_] ? modulosMatriculados[usuario_].lista : [];
-    
-    const [lista, setLista] = useState(modulosIniciales);
+    useEffect(() => {
+        if (usuarioConectado) {
+            setBuscando(true);
+            getMatriculados(usuarioConectado)
+                .then((modulosRecibidos) => {
+                    setLista(modulosRecibidos);
+                    setBuscando(false);
+                });
+        }
+    }, [usuarioConectado]);
 
     return { buscando, lista };
 }

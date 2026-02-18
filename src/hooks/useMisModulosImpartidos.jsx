@@ -1,16 +1,21 @@
-import { useState } from "react";
-import impartidos from "../mocks/mock-impartidos";
+import { useState, useEffect } from "react";
+import getImpartidos from "../servicios/getImpartidos";
 
-function useMisModulosImpartidos(usuario_) {
-    
-    const [buscando, setBuscando] = useState(false);
+function useMisModulosImpartidos(usuarioConectado) {
+    const [buscando, setBuscando] = useState(true);
+    const [lista, setLista] = useState([]);
 
-    // Validamos si el usuario existe en el mock. Si existe, extraemos su propiedad '.lista'.
-    const modulosIniciales = impartidos[usuario_] ? impartidos[usuario_].lista : [];
-    
-    const [lista, setLista] = useState(modulosIniciales);
+    useEffect(() => {
+        if (usuarioConectado) {
+            setBuscando(true);
+            getImpartidos(usuarioConectado)
+                .then((modulosRecibidos) => {
+                    setLista(modulosRecibidos);
+                    setBuscando(false);
+                });
+        }
+    }, [usuarioConectado]);
 
-    // El hook devuelve un objeto con ambos estados
     return { buscando, lista };
 }
 

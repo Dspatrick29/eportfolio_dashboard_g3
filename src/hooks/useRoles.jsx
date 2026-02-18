@@ -1,18 +1,27 @@
-import { useState } from "react";
-import roles from "../mocks/mock-roles";
+import { useState, useEffect } from "react";
+import getRoles from "../servicios/getRoles";
 
 
-function useRoles(usuario_) {
+function useRoles(usuarioConectado) {
     
-    // Estado 'buscando' inicializado a false
-    const [buscando, setBuscando] = useState(false);
+    // Inicializamos 'buscando' a true porque la petición empieza al montar el componente
+    const [buscando, setBuscando] = useState(true);
+    const [lista, setLista] = useState([]);
 
-    // Estado 'lista' inicializado con los roles del usuario conectado.
-    const rolesIniciales = roles[usuario_] ? roles[usuario_].roles : [];
-    
-    const [lista, setLista] = useState(rolesIniciales);
+    useEffect(() => {
+        // Solo hacemos la petición si hay un usuario válido
+        if (usuarioConectado) {
+            setBuscando(true);
+            
+            // Llamamos al servicio y usamos .then() para recibir los datos
+            getRoles(usuarioConectado)
+                .then((rolesRecibidos) => {
+                    setLista(rolesRecibidos);
+                    setBuscando(false);
+                });
+        }
+    }, [usuarioConectado]);
 
-    // El hook devuelve un objeto con ambos estados
     return { buscando, lista };
 }
 

@@ -5,10 +5,10 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import './MenuRoles.css'
-import useRoles from '../../hooks/useRoles';
+import useRoles from '../../hooks/useRolesMock';
 import opcionesMenu from '../../mocks/mock-administrador';
-import useMisModulosImpartidos from '../../hooks/useMisModulosImpartidos';
-import useMisModulosMatriculados from '../../hooks/useMisModulosMatriculados';
+import useMisModulosImpartidos from '../../hooks/useMisModulosImpartidosMock';
+import useMisModulosMatriculados from '../../hooks/useMisModulosMatriculadosMock';
 
 function MenuRoles(props) {
 
@@ -21,6 +21,7 @@ function MenuRoles(props) {
     const { buscando: buscandoEstudiante, lista: modulosEstudiante } = useMisModulosMatriculados(usuarioConectado);
 
 
+    // Esto quedaria  mas bonito con un Loader
     if (buscandoRoles) {
         return <p>Cargando menú...</p>;
     }
