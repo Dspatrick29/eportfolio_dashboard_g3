@@ -1,7 +1,7 @@
 /* Contenedor principal con el borde verde lateral */
 .menu-roles-container {
     max-width: 300px;
-    border-right: 6px solid #a4e405;
+    border-right: 6px solid burlywood;
 }
 
 /* Contenedor de la lista de enlaces del administrador */
@@ -15,13 +15,13 @@
 
 /* Estilo para los enlaces azules */
 .menu-admin-link {
-    color: #5b6cf2;
+    color: #00129e;
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 1rem;
 }
 
 /* Efecto opcional al pasar el ratón por encima */
 .menu-admin-link:hover {
     text-decoration: underline;
-    color: #3f51b5;
+    color: #00137e;
 }

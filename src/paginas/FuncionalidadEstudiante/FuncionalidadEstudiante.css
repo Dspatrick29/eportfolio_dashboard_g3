@@ -1,0 +1,16 @@
+.contenedor {
+    width: 100%;
+    background-color: #b5f522;
+    min-height: 400px;
+    border-radius: 4px;
+}
+
+.contenido {
+    padding: 24px; 
+}
+
+.texto {
+    text-align: center;
+    padding: 40px 0;
+    color: #555;
+}

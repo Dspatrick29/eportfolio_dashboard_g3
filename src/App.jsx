@@ -12,6 +12,48 @@ import TokenContext from './contextos/TokenContext';
 import UserContext from './contextos/UserContext';
 import SelectorTareaRA from './componentes/SelectorTareaRA/SelectorTareaRA';
 import NuevaEvidencia from './componentes/NuevaEvidencia/NuevaEvidencia';
+import { Outlet, Route, Routes } from 'react-router-dom';
+import FuncionalidadEstudiante from './paginas/FuncionalidadEstudiante/FuncionalidadEstudiante';
+import FuncionalidadDocente from './paginas/FuncionalidadDocente/FuncionalidadDocente';
+
+
+// CREAMOS EL LAYOUT (Tu estructura de Bootstrap)
+// Fuera del componente App para que React no lo reconstruya constantemente.
+function Layout({ user, menu, token }) {
+  return (
+    <TokenContext.Provider value={token}>
+      <Container fluid>
+        
+        {/* FILA SUPERIOR: La cabecera */}
+        <Row>
+          <Col>
+            <Cabecera usuario={user} />
+          </Col>
+        </Row>
+
+        {/* FILA INFERIOR: Menú lateral + Contenido dinámico */}
+        <UserContext.Provider value={user}>
+          <Row className="g-0">
+            
+            {/* Columna Izquierda: Menú (3/12 partes) */}
+            <Col xs={3} sm={3}>
+              <Roles menu={menu} />
+            </Col>
+            
+            {/* Columna Derecha: Contenido dinámico (9/12 partes) */}
+            <Col xs={9} sm={9}>
+              {/* MAGIA AQUÍ: El Outlet se sustituye por Dashboard, FuncionalidadEstudiante, etc., según la URL */}
+              <Outlet /> 
+            </Col>
+
+          </Row>
+        </UserContext.Provider>
+        
+      </Container>
+    </TokenContext.Provider>
+  );
+}
+
 
 function App() {
 
@@ -30,38 +72,24 @@ function App() {
   const [user, setUser] = useState(valorRandom);
 
 
- 
   return (
     <>
-      <TokenContext.Provider value={token}>
-        <Container fluid>
-          <Row>
-            <Col>
-              <Cabecera 
-                usuario = {user}
-              />
-              
-            </Col>
-          </Row>
-          {/* Importante el g-0, para eliminar el espacio horizontal que bootstrap añade por defecto */}
-          <UserContext.Provider value={user}>
-          <Row className="g-0">
-            <Col xs={3} sm={3}>
-              <Roles menu={menu} />
-            </Col>
-            <Col xs={9} sm={9}>
-              <Dashboard token={token} />
-            </Col>
-          </Row>
+     <Routes>
+        {/* La ruta padre "/" envuelve todo con el Layout */}
+        <Route path="/" element={<Layout user={user} menu={menu} token={token} />}>
           
+          {/* Si la ruta es exactamente "/", carga el Dashboard */}
+          <Route index element={<Dashboard token={token} />} /> 
           
+          {/* Rutas dinámicas */}
+          <Route path="funcionalidadestudiante/:id" element={<FuncionalidadEstudiante />} /> 
+          <Route path="funcionalidaddocente/:id" element={<FuncionalidadDocente />} /> 
+          
+          {/* Ruta comodín para cualquier otro nombre (carga el Dashboard) */}
+          <Route path=":nombre" element={<Dashboard token={token} />} /> 
 
-{/* PRUEBA DEL SELECTOR */}
-<NuevaEvidencia></NuevaEvidencia>
-</UserContext.Provider>
-        </Container>
-      </TokenContext.Provider>
-      
+        </Route>
+      </Routes>
     </>
   )
 }

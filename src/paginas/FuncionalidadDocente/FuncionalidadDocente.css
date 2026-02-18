@@ -1,0 +1,11 @@
+
+.contenedor {
+    width: 100%;
+    background-color: #e3f2fd; 
+    min-height: 400px;
+    border-radius: 4px;
+}
+
+.contenido {
+    padding: 24px;
+}
